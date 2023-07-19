@@ -19,7 +19,6 @@ public class CategoriesOfBooksPage extends BasePage {
     }
 
     public void clickOnComplectsOfBooks() {
-       // Assertions.assertTrue(driver.findElement(complectsOfBooks).isDisplayed());
         driver.findElement(complectsOfBooks).click();
     }
 

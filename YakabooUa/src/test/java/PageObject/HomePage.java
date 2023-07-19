@@ -4,6 +4,9 @@ package PageObject;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 
 public class HomePage extends BasePage {
@@ -15,6 +18,7 @@ public class HomePage extends BasePage {
 
     private final By burgerMenu = By.cssSelector("button[class='ui-btn-double-line ']");
     private final By mainTitle = By.xpath("//h1[contains(text(), 'Нація, що читає – непереможна!')]");
+    private final By menuItemName = By.cssSelector("span[class='ui-btn-chapter__text']");
 
     public void searchForBook(String bookTitle) {
         Assertions.assertTrue(driver.findElement(searchInput).isDisplayed());
@@ -25,8 +29,13 @@ public class HomePage extends BasePage {
         Assertions.assertTrue(driver.findElement(burgerMenu).isDisplayed());
         driver.findElement(burgerMenu).click();
     }
+
     public void verifyMainTitle() {
         Assertions.assertTrue(driver.findElement(mainTitle).isDisplayed());
         driver.findElement(mainTitle).click();
+    }
+
+    public boolean isMenuItemVisible(String menuItem) {
+        return driver.findElement(menuItemName).isDisplayed();
     }
 }

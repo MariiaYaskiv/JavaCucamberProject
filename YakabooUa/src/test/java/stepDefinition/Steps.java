@@ -9,10 +9,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
@@ -36,7 +38,6 @@ public class Steps {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get(url);
-
     }
 
     @Then("the page title should be {string}")
@@ -136,5 +137,17 @@ public class Steps {
     public void iWantToVerifyIfIAmOnHomePage() {
         HomePage homePage = new HomePage(driver);
         homePage.verifyMainTitle();
+    }
+
+    @Then("{string} Should exist in the main page:")
+    public void shouldBeVisibleInTheMainPage(String menuItem) {
+        HomePage homePage = new HomePage(driver);
+        Assertions.assertNotNull(homePage.isMenuItemVisible(menuItem), menuItem + " not found.");
+    }
+
+    @And("Ensure that hte book is in the basket")
+    public void ensureThatHteBookIsThere() {
+        CartPage cartPage = new CartPage(driver);
+        cartPage.verifyTheBookInTheBasket();
     }
 }

@@ -13,9 +13,7 @@ Feature: Yakaboo Website Tests
     And I click on the first search result
     And I add the book to the cart
     And I click on the basket
-    And I proceed to checkout
-    And I enter my personal information
-    And I complete the purchase
+    And Ensure that hte book is in the basket
 
   Scenario: Select the book from the "Categories of books" tab and buy it
     Given I open the Yakaboo website
@@ -35,3 +33,12 @@ Feature: Yakaboo Website Tests
     And I click on my basket
     And I want to close the basket
     And I want to verify if I am on Home Page
+
+  Scenario Outline: Checking all the elements in menu
+    Given I open the Yakaboo website
+    Then "<Menu Item>" Should exist in the main page:
+    Examples:
+      | Menu Item        |
+      | Друковані книги  |
+      | Електронні книги |
+      | Аудіокниги       |

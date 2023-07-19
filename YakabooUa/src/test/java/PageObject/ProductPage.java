@@ -13,6 +13,7 @@ public class ProductPage extends BasePage {
 
     private final By basketButton = By.cssSelector("img[src='/dist/shopping-cart.svg?1f289199142602df7b89714b33a9ce9a']");
     private final By buttonToCloseTheWindow = By.cssSelector("button[class='ui-btn-close product-layout__close']");
+
     public void addToCart() {
         Assertions.assertTrue(driver.findElement(addToCartButton).isDisplayed());
         driver.findElement(addToCartButton).click();
