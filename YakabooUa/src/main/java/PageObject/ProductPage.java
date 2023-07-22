@@ -10,7 +10,6 @@ public class ProductPage extends BasePage {
     }
 
     private final By addToCartButton = By.cssSelector("div[class='product-sidebar__ordering'] button[class='ui-btn-secondary add-to-cart'][data-testid='addToCart']");
-
     private final By basketButton = By.cssSelector("img[src='/dist/shopping-cart.svg?1f289199142602df7b89714b33a9ce9a']");
     private final By buttonToCloseTheWindow = By.cssSelector("button[class='ui-btn-close product-layout__close']");
 

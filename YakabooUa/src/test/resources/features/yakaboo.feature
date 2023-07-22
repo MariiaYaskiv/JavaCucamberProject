@@ -5,7 +5,7 @@ Feature: Yakaboo Website Tests
 
   Scenario: Verify Home Page Title
     Given I open the Yakaboo website
-    Then the page title should be "YAKABOO – інтернет-магазин книг, подарунків та дитячих товарів. Купити книги в магазині за найкращими цінами в Україні"
+    And I want to verify if I am on Home Page
 
   Scenario: Adding a book to the cart from search and buy it
     Given I open the Yakaboo website
